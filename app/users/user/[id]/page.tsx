@@ -1,14 +1,9 @@
 import axiosInstance from "@/lib/axios";
 import { notFound } from "next/navigation";
 import UserCard from "./UserCard";
+import { PageProps } from "@/.next/types/app/layout";
 
-interface Props {
-  params: {
-    id: number;
-  };
-}
-
-export default async function Page ({ params }: Props) {
+export default async function Page ({ params }: PageProps) {
   const { id } = await params;
   const response = await axiosInstance.get(`/users/${id}`);
 

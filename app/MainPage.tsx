@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function MainPage () {
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 md:pt-4 md:px-0">
       <h3 className="text-xl font-bold">Проект создан с целью демонстрации навыков.</h3>
       <span>
         Чтобы перейти на страницу пользователей перейдите по &nbsp;

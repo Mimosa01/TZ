@@ -1,7 +1,6 @@
 'use client'
 
 import Error from "@/components/Error";
-import Loading from "@/components/Loading";
 import { setUsers, User } from "@/lib/features/userSlice";
 import { AppDispatch, RootState } from "@/lib/store";
 import Image from "next/image";
@@ -13,8 +12,6 @@ export default function UserList ({ initialUsers }: { initialUsers: User[] }) {
 
   const dispatch = useDispatch<AppDispatch>()
   const users = useSelector((state: RootState) => state.users.users)
-  const loading = useSelector((state: RootState) => state.users.loading)
-  const error = useSelector((state: RootState) => state.users.error)
 
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = useSelector((state: RootState) => state.users.usersPerPage);
@@ -27,8 +24,6 @@ export default function UserList ({ initialUsers }: { initialUsers: User[] }) {
     dispatch(setUsers(initialUsers))
   }, [initialUsers, dispatch])
 
-  if (loading) return <Loading />
-  if (error) return <Error message={error}/>
   if (!users.length) return <Error message={"Пользователи не найдены"}/>
 
   return (
