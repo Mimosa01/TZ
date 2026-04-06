@@ -6,14 +6,57 @@
   --yellow: #FFBB00;
   --gold: #FDB056;
   --red: #FF4E4E;
-  --bg: #232829;
+  --dark-900: #191E1F;
+  --dark-850: #2D3233;
+  --dark-800: #232829;
+  --dark-700: #313637;
+  --dark-600: #484D4E;
+  --dark-500: #919191;
+  --default: #DCDCDC;
 }
 
 @theme inline {
+  --font-montserrat: var(--font-montserrat-family), ui-sans-serif, sans-serif;
+  --font-raleway: var(--font-raleway-family), ui-sans-serif, sans-serif;
+
+  --animate-timer-blink: timer-blink 1s steps(2, end) infinite;
+  --animate-cta-blink: cta-blink 0.9s steps(2, end) infinite;
+
   --color-green: var(--green);
   --color-light-green: var(--light-green);
   --color-yellow: var(--yellow);
   --color-gold: var(--gold);
-  --color-red: var(--red);
-  --color-background: var(--bg);
+  --color-critical: var(--red);
+  --color-dark-900: var(--dark-900);
+  --color-dark-800: var(--dark-800);
+  --color-dark-850: var(--dark-850);
+  --color-dark-700: var(--dark-700);
+  --color-dark-600: var(--dark-600);
+  --color-dark-650: var(--dark-650);
+  --color-dark-500: var(--dark-500);
+  --color-default: var(--default);
+}
+
+@keyframes timer-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes cta-blink {
+  0%,
+  49% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgb(253 176 86 / 0.55);
+  }
+  50%,
+  100% {
+    opacity: 0.92;
+    box-shadow: 0 0 24px 4px rgb(253 176 86 / 0.45);
+  }
 }

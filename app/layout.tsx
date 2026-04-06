@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Raleway } from "next/font/google";
+import Providers from "@/components/Providers";
 import "./globals.css";
 
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
-  variable: "--font-montserrat",
+  weight: ["300", "400", "500", "700"],
+  style: ["normal"],
+  display: "swap",
+  preload: true,
+  variable: "--font-montserrat-family",
+});
+
+const raleway = Raleway({
+  subsets: ["latin", "cyrillic"],
+  weight: ["700"],
+  style: ["normal"],
+  display: "swap",
+  preload: true,
+  variable: "--font-raleway-family",
 });
 
 export const metadata: Metadata = {
@@ -20,10 +34,12 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${montserrat.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${raleway.variable} h-full antialiased`}
     >
-      <body className={`${montserrat.className} min-h-full flex flex-col`}>
-        {children}
+      <body
+        className={`${montserrat.className} min-h-full flex flex-col bg-dark-800`}
+      >
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
